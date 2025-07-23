@@ -66,12 +66,27 @@
                 width: 40vw;
             }
         }
+
+        .versao {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 6px 12px;
+            font-size: 14px;
+            border-radius: 8px;
+            z-index: 1000;
+            font-weight: bold;
+            pointer-events: none;
+        }
     </style>
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#000000" />
 </head>
 
 <body>
+    <div class="versao">Versão 1.0.0</div>
 
     <div class="botoes-container">
         <img src="./token/true.png" onclick="changeConfig()" class="botao-imagem" id="configButton" />
