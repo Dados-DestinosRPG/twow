@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-image: url("wallpaper.png");
+            background-repeat: no-repeat, repeat;
+            background-position: center;
+            background-size: cover;
+            background-color: #000000;
+        }
+
+        .botao-imagem {
+            cursor: pointer;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); */
+            /* border-radius: 50%; */
+            display: inline-block;
+            object-fit: cover;
+        }
+
+        .botao-imagem:active {
+            transform: scale(0.96) translateY(2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .centralizada {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+
+        .centralizada2 {
+            position: absolute;
+            top: 200%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centralizada">
+        <div>
+            <img src="./monster/1/level1Backside.png" width="200" height="200" onclick="randomMonster(1)"
+                class="botao-imagem" />
+            <img src="./monster/2/level2Backside.png" width="200" height="200" onclick="randomMonster(2)"
+                class="botao-imagem" />
+            <img src="./monster/3/level3Backside.png" width="200" height="200" onclick="randomMonster(3)"
+                class="botao-imagem" />
+            <img src="./token/ForestBack.png" onclick="randomTerrain(forest)" class="botao-imagem redondo" />
+            <img src="./token/MountainBack.png" onclick="randomTerrain(mountain)" class="botao-imagem redondo" />
+            <img src="./token/WaterBack.png" onclick="randomTerrain(water)" class="botao-imagem redondo" />
+            <img src="./token/WaterBack.png" onclick="randomTerrain(allTerrains)" class="botao-imagem redondo" />
+        </div>
+
+        <div class="centralizada2">
+            <img src="" id="image1" />
+            <img src="" id="image2" />
+        </div>
+    </div>
+    <script>
+        const forest = [6, 7, 8, 10, 16, 17]
+        const mountain = [2, 3, 9, 11, 13, 18]
+        const water = [1, 4, 5, 12, 14, 15]
+        const allTerrains = forest.concat(mountain).concat(water)
+        const monster1 = [...Array(10).keys()].map(i => i + 1)
+        const monster2 = [...Array(12).keys()].map(i => i + 1)
+        const monster3 = [...Array(8).keys()].map(i => i + 1)
+
+        function randomTerrain(type) {
+            const randomIndex = Math.floor(Math.random() * type.length)
+            document.getElementById("image1").setAttribute("src", `./token/${type[randomIndex]}.png`)
+        }
+
+        function randomCarpeado(type) {
+            const randomIndex = Math.floor(Math.random() * type.length)
+            document.getElementById("image1").setAttribute("src", `./token/${type[randomIndex]}.png`)
+            document.getElementById("image2").setAttribute("src", `./token/${type[randomIndex]}.png`)
+        }
+
+        function randomMonster(type) {
+            let randomIndex, path, element
+            switch (type) {
+                case 1:
+                    path = 1;
+                    randomIndex = Math.floor(Math.random() * monster1.length)
+                    element = monster1[randomIndex]
+                    break;
+                case 2:
+                    path = 2;
+                    randomIndex = Math.floor(Math.random() * monster2.length)
+                    element = monster2[randomIndex]
+                    break;
+                case 3:
+                    path = 3;
+                    randomIndex = Math.floor(Math.random() * monster3.length)
+                    element = monster3[randomIndex]
+                    break;
+            }
+            document.getElementById("image1").setAttribute("src", `./monster/${path}/${element}.png`)
+        }
+
+    </script>
+</body>
+
+</html>
