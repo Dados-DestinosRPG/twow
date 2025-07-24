@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="versao">Versão 1.1.0</div>
+    <div class="versao">Versão 1.2.0</div>
 
     <div class="botoes-container">
         <img src="./token/true.png" onclick="changeConfig()" class="botao-imagem" id="configButton" />
@@ -29,6 +29,13 @@
     </div>
 
     <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js')
+                .then(() => console.log('✅ Service Worker registrado com sucesso'))
+                .catch((err) => console.log('❌ Erro ao registrar o Service Worker:', err));
+        }
+    </script>
 </body>
 
 </html>
