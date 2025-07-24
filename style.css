@@ -55,7 +55,7 @@
      }
 
      .resultado-container img {
-         max-width: 200px;
+         max-width: 30vw;
          height: auto;
      }
  }
@@ -71,5 +71,20 @@
      border-radius: 8px;
      z-index: 1000;
      font-weight: bold;
-     pointer-events: none;
+ }
+
+ a {
+     all: unset;
+     cursor: pointer;
+ }
+
+ a {
+     text-decoration: none;
+     color: inherit;
+     background: none;
+     border: none;
+     padding: 0;
+     margin: 0;
+     font: inherit;
+     cursor: pointer;
  }
