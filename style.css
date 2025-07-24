@@ -1,0 +1,70 @@
+ body {
+     margin: 0;
+     background: linear-gradient(rgb(255 255 255 / 70%), rgba(0, 0, 0, 0.7)), url(wallpaper.png);
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     background-color: #000000;
+     font-family: sans-serif;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     flex-direction: column;
+     gap: 2rem;
+ }
+
+ .botoes-container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 1rem;
+     padding: 1rem;
+ }
+
+ .botao-imagem {
+     cursor: pointer;
+     transition: transform 0.1s ease, box-shadow 0.1s ease;
+     width: 22vw;
+     max-width: 150px;
+     height: auto;
+     object-fit: cover;
+     border-radius: 50%;
+ }
+
+ .botao-imagem:active {
+     transform: scale(0.96) translateY(2px);
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+ }
+
+ .resultado-container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 1rem;
+ }
+
+ .resultado-container img {
+     max-width: 200px;
+     height: auto;
+ }
+
+ @media (max-width: 480px) {
+     .botao-imagem {
+         width: 30vw;
+     }
+ }
+
+ .versao {
+     position: fixed;
+     top: 10px;
+     left: 10px;
+     background-color: rgba(0, 0, 0, 0.6);
+     color: white;
+     padding: 6px 12px;
+     font-size: 14px;
+     border-radius: 8px;
+     z-index: 1000;
+     font-weight: bold;
+     pointer-events: none;
+ }

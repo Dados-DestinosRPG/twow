@@ -4,89 +4,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-        body {
-            margin: 0;
-            background-image: url("wallpaper.png");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            background-color: #000000;
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .botoes-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            padding: 1rem;
-        }
-
-        .botao-imagem {
-            cursor: pointer;
-            transition: transform 0.1s ease, box-shadow 0.1s ease;
-            width: 22vw;
-            max-width: 150px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .botao-imagem:active {
-            transform: scale(0.96) translateY(2px);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .resultado-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .resultado-container img {
-            width: 35vw;
-            max-width: 200px;
-            height: auto;
-        }
-
-        @media (max-width: 480px) {
-            .botao-imagem {
-                width: 30vw;
-            }
-
-            .resultado-container img {
-                width: 40vw;
-            }
-        }
-
-        .versao {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-            padding: 6px 12px;
-            font-size: 14px;
-            border-radius: 8px;
-            z-index: 1000;
-            font-weight: bold;
-            pointer-events: none;
-        }
-    </style>
     <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="style.css" />
     <meta name="theme-color" content="#000000" />
 </head>
 
 <body>
-    <div class="versao">Versão 1.0.0</div>
+    <div class="versao">Versão 1.1.0</div>
 
     <div class="botoes-container">
         <img src="./token/true.png" onclick="changeConfig()" class="botao-imagem" id="configButton" />
@@ -100,69 +24,11 @@
     </div>
 
     <div class="resultado-container">
-        <img src="" id="image1" />
-        <img src="" id="image2" />
+        <img id="image1" />
+        <img id="image2" />
     </div>
 
-    <script>
-        let config = true
-        const forest = [6, 7, 8, 10, 16, 17]
-        const mountain = [2, 3, 9, 11, 13, 18]
-        const water = [1, 4, 5, 12, 14, 15]
-        const allTerrains = forest.concat(mountain).concat(water)
-        const monster1 = [...Array(10).keys()].map(i => i + 1)
-        const monster2 = [...Array(12).keys()].map(i => i + 1)
-        const monster3 = [...Array(8).keys()].map(i => i + 1)
-
-        function changeConfig() {
-            config = !config
-            document.getElementById("configButton").setAttribute("src", `./token/${config}.png`)
-        }
-
-        function randomTerrain(type) {
-            document.getElementById("image2").setAttribute("src", ``)
-            const randomIndex = Math.floor(Math.random() * type.length)
-            document.getElementById("image1").setAttribute("src", `./token/${type[randomIndex]}.png`)
-        }
-
-        function randomCarpeado(type) {
-            let randomIndex = Math.floor(Math.random() * type.length)
-            document.getElementById("image1").setAttribute("src", `./token/${type[randomIndex]}.png`)
-            randomIndex = Math.floor(Math.random() * type.length)
-            document.getElementById("image2").setAttribute("src", `./token/${type[randomIndex]}.png`)
-        }
-
-        function randomMonster(type) {
-            document.getElementById("image2").setAttribute("src", ``)
-            let randomIndex, path, element
-            switch (type) {
-                case 1:
-                    path = 1;
-                    randomIndex = Math.floor(Math.random() * monster1.length)
-                    element = monster1[randomIndex]
-                    break;
-                case 2:
-                    path = 2;
-                    randomIndex = Math.floor(Math.random() * monster2.length)
-                    element = monster2[randomIndex]
-                    break;
-                case 3:
-                    path = 3;
-                    randomIndex = Math.floor(Math.random() * monster3.length)
-                    element = monster3[randomIndex]
-                    break;
-            }
-
-            if (!config) {
-                document.getElementById("image1").setAttribute("src", `./monster/${path}/${element}.png`)
-            } else {
-
-                randomTerrain(allTerrains)
-                document.getElementById("image2").setAttribute("src", `./monster/${path}/${element}.png`)
-            }
-        }
-    </script>
-
+    <script src="app.js"></script>
 </body>
 
 </html>
