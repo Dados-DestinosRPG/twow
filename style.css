@@ -53,6 +53,11 @@
      .botao-imagem {
          width: 30vw;
      }
+
+     .resultado-container img {
+         max-width: 200px;
+         height: auto;
+     }
  }
 
  .versao {
