@@ -1,7 +1,7 @@
 let config = true
-const forest = [6, 7, 8, 10, 16, 17]
-const mountain = [2, 3, 9, 11, 13, 18]
-const water = [1, 4, 5, 12, 14, 15]
+const forest = [6, 7, 8, 10, 16, 17, 21]
+const mountain = [2, 3, 9, 11, 13, 18, 19]
+const water = [1, 4, 5, 12, 14, 15, 20]
 const allTerrains = forest.concat(mountain).concat(water)
 const monster = { 1: 10, 2: 12, 3: 8 }
 
@@ -19,14 +19,12 @@ function _getRandom(type, plus) {
 }
 
 function _clearImage2() {
-    const image2 = document.getElementById("image2");
-    image2.setAttribute("src", '')
+    document.getElementById("image2").setAttribute("src", '')
 }
 
 function randomTerrain(type) {
     _clearImage2()
-    const randomIndex = _getRandom(type)
-    document.getElementById("image1").setAttribute("src", `./token/${type[randomIndex]}.png`)
+    document.getElementById("image1").setAttribute("src", `./token/${type[_getRandom(type)]}.png`)
 }
 
 function randomCarpeado(type) {
