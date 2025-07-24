@@ -1,4 +1,4 @@
-const cacheName = 'pwa-monstro-v1.1';
+const cacheName = 'pwa-monstro-v1.2.1';
 const assets = [
   './',
   './index.html',
@@ -68,6 +68,7 @@ const assets = [
 ];
 
 self.addEventListener('install', (e) => {
+  self.skipWaiting();
   e.waitUntil(
     caches.open(cacheName).then((cache) => cache.addAll(assets))
   );
@@ -85,4 +86,5 @@ self.addEventListener('activate', (e) => {
       Promise.all(keys.map((key) => key !== cacheName && caches.delete(key)))
     )
   );
+  self.clients.claim();
 });
