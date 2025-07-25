@@ -1,11 +1,16 @@
 {
+  "id": "random_twow",
   "name": "Random TWOW",
   "short_name": "Random TWOW",
   "description": "Aplicativo para sortear monstros e terrenos do jogo TWOW",
   "start_url": ".",
+  "scope": "/",
+  "lang": "en-us",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
+  "orientation": "portrait",
+  "categories": ["games", "game", "boardgame", "support"],
   "icons": [
     {
       "src": "icon-192.png",
@@ -22,5 +27,12 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot.png",
+      "sizes": "410x801",
+      "type": "image/png"
+    }
+  ],
 }
