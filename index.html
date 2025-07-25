@@ -13,27 +13,33 @@
 
 <body>
     <a href="https://www.dadosedestinosrpg.com.br" target="_blank">
-        <div class="versao">v1.2.8</div>
+        <div class="versao">v1.2.9</div>
     </a>
 
     <div class="botoes-container">
-        <img src="./token/true.png" onclick="changeConfig()" class="botao-imagem" id="configButton" alt="setup mode"/>
-        <img src="./monster/1/level1Backside.png" onclick="randomMonster(1)" class="botao-imagem" alt="random monster level 1"/>
-        <img src="./monster/2/level2Backside.png" onclick="randomMonster(2)" class="botao-imagem" alt="random monster level 2"/>
-        <img src="./monster/3/level3Backside.png" onclick="randomMonster(3)" class="botao-imagem" alt="random monster level 3"/>
-        <img src="./token/ForestBack.png" onclick="randomTerrain(forest)" class="botao-imagem" alt="random forest"/>
-        <img src="./token/MountainBack.png" onclick="randomTerrain(mountain)" class="botao-imagem" alt="random mountain"/>
-        <img src="./token/WaterBack.png" onclick="randomTerrain(water)" class="botao-imagem" alt="random water"/>
-        <img src="./token/carpeado.png" onclick="randomCarpeado(allTerrains)" class="botao-imagem" alt="random two locations"/>
+        <img src="./token/true.png" onclick="changeConfig()" class="botao-imagem" id="configButton" alt="setup mode"
+            width="auto" height="auto" />
+        <img src="./monster/1/level1Backside.png" onclick="randomMonster(1)" class="botao-imagem"
+            alt="random monster level 1" />
+        <img src="./monster/2/level2Backside.png" onclick="randomMonster(2)" class="botao-imagem"
+            alt="random monster level 2" />
+        <img src="./monster/3/level3Backside.png" onclick="randomMonster(3)" class="botao-imagem"
+            alt="random monster level 3" />
+        <img src="./token/ForestBack.png" onclick="randomTerrain(forest)" class="botao-imagem" alt="random forest" />
+        <img src="./token/MountainBack.png" onclick="randomTerrain(mountain)" class="botao-imagem"
+            alt="random mountain" />
+        <img src="./token/WaterBack.png" onclick="randomTerrain(water)" class="botao-imagem" alt="random water" />
+        <img src="./token/carpeado.png" onclick="randomCarpeado(allTerrains)" class="botao-imagem"
+            alt="random two locations" />
     </div>
 
     <div class="resultado-container">
-        <img id="image1" alt="random image result one"/>
-        <img id="image2" alt="random image result two"/>
+        <img id="image1" alt=" " />
+        <img id="image2" alt=" " />
     </div>
 
-    <script src="app.js"></script>
-    <script>
+    <script src="app.js" defer></script>
+    <script defer>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('./service-worker.js')
                 .then(() => console.log('✅ Service Worker registrado com sucesso'))
