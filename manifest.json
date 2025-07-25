@@ -56,5 +56,10 @@
     {
       "origin": "*.dados-destinosrpg.github.io"
     }
+  ],
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "browser"
   ]
 }
