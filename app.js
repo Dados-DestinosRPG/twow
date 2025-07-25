@@ -7,7 +7,7 @@ const monster = { 1: 10, 2: 12, 3: 8 }
 
 function changeConfig() {
     config = !config
-    document.getElementById("configButton").setAttribute("src", `./token/${config}.png`)
+    document.getElementById("configButton").setAttribute("src", `./token/${config}.webp`)
 }
 
 function _getRandom(type, plus) {
@@ -24,7 +24,7 @@ function _clearImage2() {
 
 function randomTerrain(type) {
     _clearImage2()
-    document.getElementById("image1").setAttribute("src", `./token/${type[_getRandom(type)]}.png`)
+    document.getElementById("image1").setAttribute("src", `./token/${type[_getRandom(type)]}.webp`)
 }
 
 function randomCarpeado(type) {
@@ -35,8 +35,8 @@ function randomCarpeado(type) {
         randomIndex2 = _getRandom(type)
     }
 
-    document.getElementById("image1").setAttribute("src", `./token/${type[randomIndex1]}.png`)
-    document.getElementById("image2").setAttribute("src", `./token/${type[randomIndex2]}.png`)
+    document.getElementById("image1").setAttribute("src", `./token/${type[randomIndex1]}.webp`)
+    document.getElementById("image2").setAttribute("src", `./token/${type[randomIndex2]}.webp`)
 }
 
 function randomMonster(type) {
@@ -46,5 +46,5 @@ function randomMonster(type) {
         randomTerrain(allTerrains)
         image = "image2"
     }
-    document.getElementById(image).setAttribute("src", `./monster/${type}/${_getRandom(monster[type], true)}.png`)
+    document.getElementById(image).setAttribute("src", `./monster/${type}/${_getRandom(monster[type], true)}.webp`)
 }
