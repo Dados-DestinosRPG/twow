@@ -10,7 +10,12 @@
   "background_color": "#000000",
   "theme_color": "#000000",
   "orientation": "portrait",
-  "categories": ["games", "game", "boardgame", "support"],
+  "categories": [
+    "games",
+    "game",
+    "boardgame",
+    "support"
+  ],
   "icons": [
     {
       "src": "icon-192.png",
@@ -34,5 +39,5 @@
       "sizes": "410x801",
       "type": "image/png"
     }
-  ],
+  ]
 }

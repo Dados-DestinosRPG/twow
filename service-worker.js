@@ -1,4 +1,4 @@
-const cacheName = 'pwa-monstro-v1.2.5';
+const cacheName = 'pwa-monstro-v1.2.6';
 const assets = [
   './',
   './index.html',
