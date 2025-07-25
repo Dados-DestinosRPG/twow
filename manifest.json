@@ -2,6 +2,7 @@
   "id": "random_twow",
   "name": "Random TWOW",
   "short_name": "Random TWOW",
+  "dir": "ltr",
   "description": "Aplicativo para sortear monstros e terrenos do jogo TWOW",
   "start_url": ".",
   "scope": "/",
@@ -38,6 +39,22 @@
       "src": "screenshot.png",
       "sizes": "410x801",
       "type": "image/png"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": [
+      "navigate-existing",
+      "auto"
+    ]
+  },
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "scope_extensions": [
+    {
+      "origin": "*.dadosedestinosrpg.com.br"
+    },
+    {
+      "origin": "*.dados-destinosrpg.github.io"
     }
   ]
 }
