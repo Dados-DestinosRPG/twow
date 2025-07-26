@@ -1,4 +1,4 @@
-const cacheName = 'pwa-monstro-v1.3.1';
+const cacheName = 'pwa-monstro-v1.3.2';
 const assets = [
   './',
   './index.html',
@@ -71,7 +71,11 @@ const assets = [
 self.addEventListener('install', (e) => {
   self.skipWaiting();
   e.waitUntil(
-    caches.open(cacheName).then((cache) => cache.addAll(assets))
+    caches.open(cacheName).then((cache) => {
+      return cache.addAll(assets);
+    }).catch((error) => {
+      console.error('Erro ao adicionar arquivos ao cache:', error);
+    })
   );
 });
 
