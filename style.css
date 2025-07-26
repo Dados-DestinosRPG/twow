@@ -26,7 +26,7 @@
      cursor: pointer;
      transition: transform 0.1s ease, box-shadow 0.1s ease;
      width: 22vw;
-     max-width: 150px;
+     max-width: 200px;
      height: auto;
      object-fit: cover;
      border-radius: 50%;

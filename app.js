@@ -36,8 +36,8 @@ function _setMonster(image, type, position) {
 
 function _setImage(url, position) {
     document.getElementById(position).setAttribute('src', url)
-    document.getElementById(position).setAttribute('width', '150')
-    document.getElementById(position).setAttribute('height', '150')
+    document.getElementById(position).setAttribute('width', '200')
+    document.getElementById(position).setAttribute('height', '200')
 }
 
 function randomTerrain(type) {
