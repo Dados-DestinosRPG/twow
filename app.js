@@ -7,7 +7,7 @@ const monster = { 1: 10, 2: 12, 3: 8 }
 
 function changeConfig() {
     config = !config
-    document.getElementById("configButton").setAttribute("src", `./token/${config}.webp`)
+    document.getElementById('configButton').setAttribute('src', `./token/${config}.webp`)
 }
 
 function _getRandom(type, plus) {
@@ -19,12 +19,30 @@ function _getRandom(type, plus) {
 }
 
 function _clearImage2() {
-    document.getElementById("image2").setAttribute("src", '')
+    document.getElementById('image2').setAttribute('src', '')
+    document.getElementById('image2').setAttribute('width', '0')
+    document.getElementById('image2').setAttribute('height', '0')
+}
+
+function _setTerrain(image, position) {
+    const url = `./token/${image}.webp`
+    _setImage(url, position)
+}
+
+function _setMonster(image, type, position) {
+    const url = `./monster/${type}/${image}.webp`
+    _setImage(url, position)
+}
+
+function _setImage(url, position) {
+    document.getElementById(position).setAttribute('src', url)
+    document.getElementById(position).setAttribute('width', '150')
+    document.getElementById(position).setAttribute('height', '150')
 }
 
 function randomTerrain(type) {
     _clearImage2()
-    document.getElementById("image1").setAttribute("src", `./token/${type[_getRandom(type)]}.webp`)
+    _setTerrain(type[_getRandom(type)], 'image1')
 }
 
 function randomCarpeado(type) {
@@ -34,17 +52,16 @@ function randomCarpeado(type) {
     while (randomIndex1 === randomIndex2) {
         randomIndex2 = _getRandom(type)
     }
-
-    document.getElementById("image1").setAttribute("src", `./token/${type[randomIndex1]}.webp`)
-    document.getElementById("image2").setAttribute("src", `./token/${type[randomIndex2]}.webp`)
+    _setTerrain(type[randomIndex1], 'image1')
+    _setTerrain(type[randomIndex2], 'image2')
 }
 
 function randomMonster(type) {
     _clearImage2()
-    let image = "image1"
+    let position = 'image1'
     if (config) {
         randomTerrain(allTerrains)
-        image = "image2"
+        position = 'image2'
     }
-    document.getElementById(image).setAttribute("src", `./monster/${type}/${_getRandom(monster[type], true)}.webp`)
+    _setMonster(_getRandom(monster[type], true), type, position)
 }
