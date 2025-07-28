@@ -1,4 +1,4 @@
-const cacheName = 'pwa-monstro-v1.3.7';
+const cacheName = 'pwa-monstro-v1.4.0';
 const assets = [
   './',
   './index.html',
@@ -66,6 +66,20 @@ const assets = [
   './token/21.webp',
   './token/true.webp',
   './token/false.webp',
+  './witchers/1.webp',
+  './witchers/2.webp',
+  './witchers/3.webp',
+  './witchers/4.webp',
+  './witchers/5.webp',
+  './witchers/6.webp',
+  './witchers/7.webp',
+  './witchers/0.webp',
+  './mages/1.webp',
+  './mages/2.webp',
+  './mages/3.webp',
+  './mages/4.webp',
+  './mages/5.webp',
+  './mages/0.webp'
 ];
 
 self.addEventListener('install', (e) => {

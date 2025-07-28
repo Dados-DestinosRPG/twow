@@ -4,6 +4,8 @@ const mountain = [2, 3, 9, 11, 13, 18, 19]
 const water = [1, 4, 5, 12, 14, 15, 20]
 const allTerrains = forest.concat(mountain).concat(water)
 const monster = { 1: 10, 2: 12, 3: 8 }
+const witchers = 7
+const mages = 5
 
 function changeConfig() {
     config = !config
@@ -34,6 +36,14 @@ function _setMonster(image, type, position) {
     _setImage(url, position)
 }
 
+function _setChar(image, position, type) {
+    let url = `./witchers/${image}.webp`
+    if (type === 'mage') {
+        url = `./mages/${image}.webp`
+    }
+    _setImage(url, position)
+}
+
 function _setImage(url, position) {
     document.getElementById(position).setAttribute('src', url)
     document.getElementById(position).setAttribute('width', '200')
@@ -45,13 +55,19 @@ function randomTerrain(type) {
     _setTerrain(type[_getRandom(type)], 'image1')
 }
 
-function randomCarpeado(type) {
-    const randomIndex1 = _getRandom(type)
-    let randomIndex2 = _getRandom(type)
+function _getDoubleRandom(type, plus) {
+    const randomIndex1 = _getRandom(type, plus)
+    let randomIndex2 = _getRandom(type, plus)
 
     while (randomIndex1 === randomIndex2) {
-        randomIndex2 = _getRandom(type)
+        randomIndex2 = _getRandom(type, plus)
     }
+
+    return [randomIndex1, randomIndex2]
+}
+
+function randomCarpeado(type) {
+    const [randomIndex1, randomIndex2] = _getDoubleRandom(type)
     _setTerrain(type[randomIndex1], 'image1')
     _setTerrain(type[randomIndex2], 'image2')
 }
@@ -64,4 +80,16 @@ function randomMonster(type) {
         position = 'image2'
     }
     _setMonster(_getRandom(monster[type], true), type, position)
+}
+
+function randomChar(type) {
+    if (type === 'witcher') {
+        const [randomIndex1, randomIndex2] = _getDoubleRandom(witchers, true)
+        _setChar(randomIndex1, 'image1', 'witcher')
+        _setChar(randomIndex2, 'image2', 'witcher')
+    } else {
+        const [randomIndex1, randomIndex2] = _getDoubleRandom(mages, true)
+        _setChar(randomIndex1, 'image1', 'mage')
+        _setChar(randomIndex2, 'image2', 'mage')
+    }
 }
