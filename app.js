@@ -26,14 +26,25 @@ function _clearImage2() {
     document.getElementById('image2').setAttribute('height', '0')
 }
 
-function _setTerrain(image, position) {
+function _setTerrain(image, position, type) {
     const url = `./token/${image}.webp`
     _setImage(url, position)
+
+    if (type === 'monster') {
+
+    }
+
+    if (type === 'all') {
+        document.getElementById(position).setAttribute('onclick', 'randomCarpeado(allTerrains)')
+    } else {
+        document.getElementById(position).setAttribute('onclick', `randomTerrain('${type}')`)
+    }
 }
 
 function _setMonster(image, type, position) {
     const url = `./monster/${type}/${image}.webp`
     _setImage(url, position)
+    document.getElementById(position).setAttribute('onclick', `randomMonster(${type},'${position}')`)
 }
 
 function _setChar(image, position, type) {
@@ -42,6 +53,9 @@ function _setChar(image, position, type) {
         url = `./mages/${image}.webp`
     }
     _setImage(url, position)
+    const image1 = position === 'image1' ? true : false
+    const image2 = position === 'image2' ? true : false
+    document.getElementById(position).setAttribute('onclick', `randomChar('${type}', ${image1}, ${image2})`)
 }
 
 function _setImage(url, position) {
@@ -51,8 +65,27 @@ function _setImage(url, position) {
 }
 
 function randomTerrain(type) {
-    _clearImage2()
-    _setTerrain(type[_getRandom(type)], 'image1')
+    switch (type) {
+        case 'forest':
+            _setTerrain(forest[_getRandom(forest)], 'image1', type)
+            _clearImage2()
+            break;
+        case 'mountain':
+            _setTerrain(mountain[_getRandom(mountain)], 'image1', type)
+            _clearImage2()
+            break;
+        case 'water':
+            _setTerrain(water[_getRandom(water)], 'image1', type)
+            _clearImage2()
+            break;
+        case 'allTerrains':
+            _setTerrain(allTerrains[_getRandom(allTerrains)], 'image1', 'all')
+            _clearImage2()
+            break;
+        case 'monster':
+            _setTerrain(allTerrains[_getRandom(allTerrains)], 'image1', 'monster')
+            break;
+    }
 }
 
 function _getDoubleRandom(type, plus) {
@@ -68,28 +101,36 @@ function _getDoubleRandom(type, plus) {
 
 function randomCarpeado(type) {
     const [randomIndex1, randomIndex2] = _getDoubleRandom(type)
-    _setTerrain(type[randomIndex1], 'image1')
-    _setTerrain(type[randomIndex2], 'image2')
+    _setTerrain(type[randomIndex1], 'image1', 'all')
+    _setTerrain(type[randomIndex2], 'image2', 'all')
 }
 
-function randomMonster(type) {
+function randomMonster(type, position) {
     _clearImage2()
-    let position = 'image1'
-    if (config) {
-        randomTerrain(allTerrains)
+    position = position || 'image1'
+    if (config && position != 'image2') {
+        randomTerrain('monster', 'image2')
         position = 'image2'
     }
     _setMonster(_getRandom(monster[type], true), type, position)
 }
 
-function randomChar(type) {
+function randomChar(type, image1, image2) {
     if (type === 'witcher') {
         const [randomIndex1, randomIndex2] = _getDoubleRandom(witchers, true)
-        _setChar(randomIndex1, 'image1', 'witcher')
-        _setChar(randomIndex2, 'image2', 'witcher')
+        if (image1) {
+            _setChar(randomIndex1, 'image1', 'witcher')
+        }
+        if (image2) {
+            _setChar(randomIndex2, 'image2', 'witcher')
+        }
     } else {
         const [randomIndex1, randomIndex2] = _getDoubleRandom(mages, true)
-        _setChar(randomIndex1, 'image1', 'mage')
-        _setChar(randomIndex2, 'image2', 'mage')
+        if (image1) {
+            _setChar(randomIndex1, 'image1', 'mage')
+        }
+        if (image2) {
+            _setChar(randomIndex2, 'image2', 'mage')
+        }
     }
 }

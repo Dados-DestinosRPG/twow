@@ -13,32 +13,31 @@
 
 <body>
     <a href="https://www.dadosedestinosrpg.com.br" target="_blank">
-        <div class="versao">v1.4.0</div>
+        <div class="versao">v1.5.0</div>
     </a>
 
     <div class="botoes-container">
         <img src="./token/true.webp" onclick="changeConfig()" class="botao-imagem" id="configButton" alt="setup mode"
             width="200" height="200" />
-        <img src="./witchers/0.webp" onclick="randomChar('witcher')" class="botao-imagem" alt="random witcher" width="200"
-            height="200" />
-        <img src="./mages/0.webp" onclick="randomChar('mage')" class="botao-imagem" alt="random witcher" width="200"
-            height="200" />
+        <img src="./witchers/0.webp" onclick="randomChar('witcher',true,true)" class="botao-imagem" alt="random witcher"
+            width="200" height="200" />
+        <img src="./mages/0.webp" onclick="randomChar('mage',true,true)" class="botao-imagem" alt="random witcher"
+            width="200" height="200" />
         <img src="./monster/1/level1Backside.webp" onclick="randomMonster(1)" class="botao-imagem"
             alt="random monster level 1" width="200" height="200" />
         <img src="./monster/2/level2Backside.webp" onclick="randomMonster(2)" class="botao-imagem"
             alt="random monster level 2" width="200" height="200" />
         <img src="./monster/3/level3Backside.webp" onclick="randomMonster(3)" class="botao-imagem"
             alt="random monster level 3" width="200" height="200" />
-        <img src="./token/forest.webp" onclick="randomTerrain(forest)" class="botao-imagem" alt="random forest"
+        <img src="./token/forest.webp" onclick="randomTerrain('forest')" class="botao-imagem" alt="random forest"
             width="200" height="200" />
-        <img src="./token/mountain.webp" onclick="randomTerrain(mountain)" class="botao-imagem" alt="random mountain"
+        <img src="./token/mountain.webp" onclick="randomTerrain('mountain')" class="botao-imagem" alt="random mountain"
             width="200" height="200" />
-        <img src="./token/water.webp" onclick="randomTerrain(water)" class="botao-imagem" alt="random water" width="200"
-            height="200" />
+        <img src="./token/water.webp" onclick="randomTerrain('water')" class="botao-imagem" alt="random water"
+            width="200" height="200" />
         <img src="./token/carpeado.webp" onclick="randomCarpeado(allTerrains)" class="botao-imagem"
             alt="random two locations" width="200" height="200" />
     </div>
-
     <div class="resultado-container">
         <img id="image1" alt width="0" height="0" />
         <img id="image2" alt width="0" height="0" />
