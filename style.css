@@ -42,6 +42,7 @@
      flex-wrap: wrap;
      justify-content: center;
      gap: 1rem;
+     background-color: rgba(0, 0, 0, 0.6);
  }
 
  .resultado-container img {
@@ -52,11 +53,6 @@
  @media (max-width: 480px) {
      .botao-imagem {
          width: 30vw;
-     }
-
-     .resultado-container img {
-         max-width: 30vw;
-         height: auto;
      }
  }
 
