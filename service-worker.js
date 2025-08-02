@@ -1,4 +1,4 @@
-const cacheName = 'pwa-monstro-v1.7.1';
+const cacheName = 'pwa-monstro-v1.7.2';
 const assets = [
   './',
   './index.html',
@@ -6,6 +6,9 @@ const assets = [
   './icon-192.png',
   './icon-256.png',
   './icon-512.png',
+  './monster/1.webp',
+  './monster/2.webp',
+  './monster/monster.webp',
   './monster/1/level1Backside.webp',
   './monster/1/1.webp',
   './monster/1/2.webp',
@@ -64,8 +67,6 @@ const assets = [
   './token/19.webp',
   './token/20.webp',
   './token/21.webp',
-  './token/true.webp',
-  './token/false.webp',
   './witchers/1.webp',
   './witchers/2.webp',
   './witchers/3.webp',
