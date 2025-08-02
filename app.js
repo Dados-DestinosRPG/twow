@@ -1,4 +1,3 @@
-let config = true
 const forest = [6, 7, 8, 10, 16, 17, 21]
 const mountain = [2, 3, 9, 11, 13, 18, 19]
 const water = [1, 4, 5, 12, 14, 15, 20]
@@ -6,11 +5,7 @@ const allTerrains = forest.concat(mountain).concat(water)
 const monster = { 1: 10, 2: 12, 3: 8 }
 const witchers = 7
 const mages = 5
-
-function changeConfig() {
-    config = !config
-    document.getElementById('configButton').setAttribute('src', `./token/${config}.webp`)
-}
+const attack = 2
 
 function _getRandom(type, plus) {
     let random = Math.floor(Math.random() * type.length)
@@ -65,6 +60,9 @@ function _setImage(url, position) {
     img.src = url
     img.width = 200
     img.height = 200
+    img.classList.remove("girar");
+    img.offsetWidth;
+    img.classList.add("girar");
 }
 
 function _getDoubleRandom(type, plus) {
@@ -76,6 +74,12 @@ function _getDoubleRandom(type, plus) {
     } while (randomIndex1 === randomIndex2)
 
     return [randomIndex1, randomIndex2]
+}
+
+function _setAttack(url) {
+    const image1 = document.getElementById('image1')
+    image1.setAttribute('onclick', 'randomAttack(attack)')
+    _setImage(url, 'image1')
 }
 
 function randomTerrain(type) {
@@ -107,12 +111,10 @@ function randomCarpeado(type) {
 function randomMonster(type, position) {
     _inativeImage2()
     position = position || 'image1'
-    if (config) {
-        _activeImage2()
-        if (position != 'image2') {
-            randomTerrain('monster', 'image2')
-            position = 'image2'
-        }
+    _activeImage2()
+    if (position != 'image2') {
+        randomTerrain('monster', 'image2')
+        position = 'image2'
     }
 
     _setMonster(_getRandom(monster[type], true), type, position)
@@ -129,4 +131,10 @@ function randomChar(type, image1, image2) {
 
     if (image1) _setChar(randomIndex1, 'image1', type)
     if (image2) _setChar(randomIndex2, 'image2', type)
+}
+
+function randomAttack(attack) {
+    _inativeImage2()
+    const url = `./monster/${_getRandom(attack, true)}.webp`
+    _setAttack(url)
 }

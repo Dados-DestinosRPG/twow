@@ -29,6 +29,21 @@
      height: auto;
      object-fit: cover;
      border-radius: 50%;
+     transition: transform 0.6s ease;
+ }
+
+ .girar {
+     animation: girar360 0.15s ease;
+ }
+
+ @keyframes girar360 {
+     from {
+         transform: rotate(0deg);
+     }
+
+     to {
+         transform: rotate(720deg);
+     }
  }
 
  .botao-imagem:active {
