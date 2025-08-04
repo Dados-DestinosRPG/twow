@@ -60,9 +60,9 @@ function _setImage(url, position) {
     img.src = url
     img.width = 200
     img.height = 200
-    img.classList.remove("girar");
-    img.offsetWidth;
-    img.classList.add("girar");
+    img.classList.remove("girar")
+    img.offsetWidth
+    img.classList.add("girar")
 }
 
 function _getDoubleRandom(type, plus) {

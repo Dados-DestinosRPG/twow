@@ -14,7 +14,7 @@
 
 <body>
     <a href="https://www.dadosedestinosrpg.com.br" target="_blank">
-        <div class="versao">v1.7.4</div>
+        <div class="versao">v1.7.5</div>
     </a>
 
     <div class="botoes-container">
@@ -24,20 +24,20 @@
             width="200" height="200" />
         <img src="./monster/1/level1Backside.webp" onclick="randomMonster(1)" class="botao-imagem"
             alt="random monster level 1" width="200" height="200" />
-        <img src="./monster/2/level2Backside.webp" onclick="randomMonster(2)" class="botao-imagem"
-            alt="random monster level 2" width="200" height="200" />
-        <img src="./monster/3/level3Backside.webp" onclick="randomMonster(3)" class="botao-imagem"
-            alt="random monster level 3" width="200" height="200" />
         <img src="./token/forest.webp" onclick="randomTerrain('forest')" class="botao-imagem" alt="random forest"
             width="200" height="200" />
+        <img src="./monster/2/level2Backside.webp" onclick="randomMonster(2)" class="botao-imagem"
+            alt="random monster level 2" width="200" height="200" />
         <img src="./token/mountain.webp" onclick="randomTerrain('mountain')" class="botao-imagem" alt="random mountain"
             width="200" height="200" />
+        <img src="./monster/3/level3Backside.webp" onclick="randomMonster(3)" class="botao-imagem"
+            alt="random monster level 3" width="200" height="200" />
         <img src="./token/water.webp" onclick="randomTerrain('water')" class="botao-imagem" alt="random water"
+            width="200" height="200" />
+        <img src="./monster/monster.webp" onclick="randomAttack(attack)" class="botao-imagem" alt="random attack"
             width="200" height="200" />
         <img src="./token/carpeado.webp" onclick="randomCarpeado(allTerrains)" class="botao-imagem"
             alt="random two locations" width="200" height="200" />
-        <img src="./monster/monster.webp" onclick="randomAttack(attack)" class="botao-imagem" alt="random attack"
-            width="200" height="200" />
     </div>
 
     <div class="resultado-container">
@@ -50,7 +50,7 @@
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('./service-worker.js')
                 .then(() => console.log('✅ Service Worker registrado com sucesso'))
-                .catch((err) => console.error('❌ Erro ao registrar o Service Worker:', err));
+                .catch((err) => console.error('❌ Erro ao registrar o Service Worker:', err))
         }
     </script>
 </body>

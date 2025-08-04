@@ -1,4 +1,4 @@
-const cacheName = 'pwa-monstro-v1.7.4';
+const cacheName = 'pwa-monstro-v1.7.5'
 const assets = [
   './',
   './index.html',
@@ -81,30 +81,30 @@ const assets = [
   './mages/4.webp',
   './mages/5.webp',
   './mages/0.webp'
-];
+]
 
 self.addEventListener('install', (e) => {
-  self.skipWaiting();
+  self.skipWaiting()
   e.waitUntil(
     caches.open(cacheName).then((cache) => {
-      return cache.addAll(assets);
+      return cache.addAll(assets)
     }).catch((error) => {
-      console.error('Erro ao adicionar arquivos ao cache:', error);
+      console.error('Erro ao adicionar arquivos ao cache:', error)
     })
-  );
-});
+  )
+})
 
 self.addEventListener('fetch', (e) => {
   e.respondWith(
     caches.match(e.request).then((res) => res || fetch(e.request))
-  );
-});
+  )
+})
 
 self.addEventListener('activate', (e) => {
   e.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(keys.map((key) => key !== cacheName && caches.delete(key)))
     )
-  );
-  self.clients.claim();
-});
+  )
+  self.clients.claim()
+})
