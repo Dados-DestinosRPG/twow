@@ -1,4 +1,4 @@
-const cacheName = 'pwa-monstro-v1.7.5'
+const cacheName = 'pwa-monstro-v1.8.0'
 const assets = [
   './',
   './index.html',
@@ -46,6 +46,7 @@ const assets = [
   './token/mountain.webp',
   './token/water.webp',
   './token/carpeado.webp',
+  './token/boat.webp',
   './token/1.webp',
   './token/2.webp',
   './token/3.webp',

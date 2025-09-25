@@ -6,6 +6,7 @@ const monster = { 1: 10, 2: 12, 3: 7 }
 const witchers = 7
 const mages = 5
 const attack = 2
+const harbor = [1, 5, 6, 9, 12, 13]
 
 function _getRandom(type, plus) {
     let random = Math.floor(Math.random() * type.length)
@@ -23,6 +24,18 @@ function _inativeImage2() {
     image2.hidden = true
 }
 
+function _inativeImage3() {
+    const image3 = document.getElementById('image3')
+    image3.setAttribute('src', '')
+    image3.setAttribute('width', '0')
+    image3.setAttribute('height', '0')
+    image3.hidden = true
+}
+
+function _activeImage3() {
+    document.getElementById('image3').hidden = false
+}
+
 function _activeImage2() {
     document.getElementById('image2').hidden = false
 }
@@ -33,6 +46,8 @@ function _setTerrain(image, position, type) {
     const terrain = document.getElementById(position)
     if (type === 'all') {
         terrain.setAttribute('onclick', 'randomCarpeado(allTerrains)')
+    } else if (type === 'harbor') {
+        terrain.setAttribute('onclick', 'randomHarbor(harbor)')
     } else {
         terrain.setAttribute('onclick', `randomTerrain('${type}')`)
     }
@@ -76,6 +91,19 @@ function _getDoubleRandom(type, plus) {
     return [randomIndex1, randomIndex2]
 }
 
+function _getTripleRandom(type, plus) {
+    const randomIndex1 = _getRandom(type, plus)
+    let randomIndex2 = _getRandom(type, plus)
+    let randomIndex3 = _getRandom(type, plus)
+
+    do {
+        randomIndex2 = _getRandom(type, plus)
+        randomIndex3 = _getRandom(type, plus)
+    } while (randomIndex1 === randomIndex2 || randomIndex1 === randomIndex3 || randomIndex2 === randomIndex3)
+
+    return [randomIndex1, randomIndex2, randomIndex3]
+}
+
 function _setAttack(url) {
     const image1 = document.getElementById('image1')
     image1.setAttribute('onclick', 'randomAttack(attack)')
@@ -98,10 +126,12 @@ function randomTerrain(type) {
         const terrain = terrainMap[type][_getRandom(terrainMap[type])]
         _setTerrain(terrain, 'image1', type)
         _inativeImage2()
+        _inativeImage3()
     }
 }
 
 function randomCarpeado(type) {
+    _inativeImage3()
     _activeImage2()
     const [randomIndex1, randomIndex2] = _getDoubleRandom(type)
     _setTerrain(type[randomIndex1], 'image1', 'all')
@@ -110,6 +140,7 @@ function randomCarpeado(type) {
 
 function randomMonster(type, position) {
     _inativeImage2()
+    _inativeImage3()
     position = position || 'image1'
     _activeImage2()
     if (position != 'image2') {
@@ -121,6 +152,7 @@ function randomMonster(type, position) {
 }
 
 function randomChar(type, image1, image2) {
+    _inativeImage3()
     _activeImage2()
     const charMap = {
         witcher: witchers,
@@ -135,6 +167,16 @@ function randomChar(type, image1, image2) {
 
 function randomAttack(attack) {
     _inativeImage2()
+    _inativeImage3()
     const url = `./monster/${_getRandom(attack, true)}.webp`
     _setAttack(url)
+}
+
+function randomHarbor(harbor) {
+    _activeImage2()
+    _activeImage3()
+    const [randomIndex1, randomIndex2, randomIndex3] = _getTripleRandom(harbor)
+    _setTerrain(harbor[randomIndex1], 'image1', 'harbor')
+    _setTerrain(harbor[randomIndex2], 'image2', 'harbor')
+    _setTerrain(harbor[randomIndex3], 'image3', 'harbor')
 }
