@@ -1,4 +1,4 @@
-const cacheName = 'pwa-monstro-v1.8.0'
+const cacheName = 'pwa-monstro-v1.9.0'
 const assets = [
   './',
   './index.html',
@@ -68,6 +68,7 @@ const assets = [
   './token/19.webp',
   './token/20.webp',
   './token/21.webp',
+  './token/wildhunt.webp',
   './witchers/1.webp',
   './witchers/2.webp',
   './witchers/3.webp',
@@ -76,12 +77,36 @@ const assets = [
   './witchers/6.webp',
   './witchers/7.webp',
   './witchers/0.webp',
+  './witchers/a1.webp',
+  './witchers/a2.webp',
+  './witchers/a3.webp',
+  './witchers/a4.webp',
+  './witchers/a5.webp',
+  './witchers/a6.webp',
+  './witchers/a7.webp',
   './mages/1.webp',
   './mages/2.webp',
   './mages/3.webp',
   './mages/4.webp',
   './mages/5.webp',
-  './mages/0.webp'
+  './mages/0.webp',
+  './mages/a1.webp',
+  './mages/a2.webp',
+  './mages/a3.webp',
+  './mages/a4.webp',
+  './mages/a5.webp',
+  './wildhunt/1.webp',
+  './wildhunt/2.webp',
+  './wildhunt/3.webp',
+  './wildhunt/4.webp',
+  './wildhunt/5.webp',
+  './wildhunt/6.webp',
+  './wildhunt/7.webp',
+  './wildhunt/8.webp',
+  './wildhunt/9.webp',
+  './wildhunt/10.webp',
+  './wildhunt/11.webp',
+  './wildhunt/12.webp',
 ]
 
 self.addEventListener('install', (e) => {
