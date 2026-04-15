@@ -72,6 +72,7 @@ function _setChar(image, position, type) {
     if (type === 'mage') {
         url = `./mages/${image}.webp`
     }
+
     _setImage(url, position)
     const image1 = position === 'image1' ? true : false
     const image2 = position === 'image2' ? true : false
@@ -189,21 +190,28 @@ function randomHarbor(harbor) {
     _setTerrain(harbor[randomIndex3], 'image3', 'harbor')
 }
 
-function randomWild(wild) {
+function randomWild() {
     _activeImage2()
     _activeImage3()
-    // const witcherOrMage = _getRandom(attack, true)
-    // const WITCHER = 1
-    // let indexes = []
 
-    // if (witcherOrMage === WITCHER) {
-    //     console.log('opa')
-    // } else {
-    //     console.log('não opa')
-    // }
+    let imgs = 1
 
-    const [randomIndex1, randomIndex2, randomIndex3] = _getTripleRandom(wild, true)
-    _setWild(randomIndex1, 'image1', 'wildhunt')
-    _setWild(randomIndex2, 'image2', 'wildhunt')
-    _setWild(randomIndex3, 'image3', 'wildhunt')
+    do {
+        const position = `image${imgs}`
+        switch (_getRandom(3, true)) {
+            case 1:
+                _setChar(_getRandom(witchers, true), position, 'witcher')
+                break;
+            case 2:
+                _setChar(_getRandom(mages, true), position, 'mage')
+                break;
+            case 3:
+                const url = `./token/tavern.webp`
+                _setImage(url, position)
+                break;
+        }
+
+        document.getElementById(`image${imgs}`).setAttribute('onclick', 'randomWild()')
+        imgs++
+    } while (imgs <= 3);
 }
