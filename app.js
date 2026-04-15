@@ -7,6 +7,7 @@ const witchers = 7
 const mages = 5
 const attack = 2
 const harbor = [1, 5, 6, 9, 12, 13]
+const wild = 12
 
 function _getRandom(type, plus) {
     let random = Math.floor(Math.random() * type.length)
@@ -51,6 +52,13 @@ function _setTerrain(image, position, type) {
     } else {
         terrain.setAttribute('onclick', `randomTerrain('${type}')`)
     }
+}
+
+function _setWild(image, position, type) {
+    const url = `./wildhunt/${image}.webp`
+    _setImage(url, position)
+    const terrain = document.getElementById(position)
+    terrain.setAttribute('onclick', 'randomWild(wild)')
 }
 
 function _setMonster(image, type, position) {
@@ -179,4 +187,23 @@ function randomHarbor(harbor) {
     _setTerrain(harbor[randomIndex1], 'image1', 'harbor')
     _setTerrain(harbor[randomIndex2], 'image2', 'harbor')
     _setTerrain(harbor[randomIndex3], 'image3', 'harbor')
+}
+
+function randomWild(wild) {
+    _activeImage2()
+    _activeImage3()
+    // const witcherOrMage = _getRandom(attack, true)
+    // const WITCHER = 1
+    // let indexes = []
+
+    // if (witcherOrMage === WITCHER) {
+    //     console.log('opa')
+    // } else {
+    //     console.log('não opa')
+    // }
+
+    const [randomIndex1, randomIndex2, randomIndex3] = _getTripleRandom(wild, true)
+    _setWild(randomIndex1, 'image1', 'wildhunt')
+    _setWild(randomIndex2, 'image2', 'wildhunt')
+    _setWild(randomIndex3, 'image3', 'wildhunt')
 }
